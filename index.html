@@ -89,15 +89,40 @@ nav.scrolled { border-bottom-color: var(--mist); }
 .nav-links a:hover { opacity: 1; }
 @media (max-width: 560px) { .nav-links a.hide-sm { display: none; } }
 
-/* Hero */
+/* Hero: text left, portrait standing inside the breathing circles on the right */
 .hero {
   position: relative;
   overflow: hidden;
-  text-align: center;
-  padding: clamp(6rem, 14vw, 10rem) var(--gutter) clamp(5rem, 11vw, 8rem);
+  padding: clamp(3rem, 7vw, 5rem) var(--gutter) clamp(3rem, 7vw, 5rem);
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
   display: grid;
-  justify-items: center;
-  gap: 1.6rem;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+.hero-text { display: grid; justify-items: start; gap: 1.5rem; min-width: 0; }
+.hero-figure {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: clamp(420px, 52vw, 600px);
+}
+.hero-figure img {
+  position: relative;
+  height: clamp(400px, 50vw, 580px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+@media (max-width: 820px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-text { justify-items: center; text-align: center; }
+  .hero-figure { min-height: 0; padding-block: 1rem; }
+  .hero-figure img { height: min(110vw, 460px); }
 }
 .ring {
   position: absolute;
@@ -107,15 +132,14 @@ nav.scrolled { border-bottom-color: var(--mist); }
   pointer-events: none;
   animation: breathe 8s ease-in-out infinite;
 }
-.ring.r1 { width: min(92vw, 660px); aspect-ratio: 1; border: 1px solid var(--mist); opacity: .7; }
-.ring.r2 { width: min(70vw, 490px); aspect-ratio: 1; border: 1px solid var(--stone); opacity: .28; animation-direction: reverse; }
-.ring.r3 { width: min(46vw, 320px); aspect-ratio: 1; border: 1px solid var(--mist); opacity: .55; }
+.ring.r1 { width: min(96vw, 560px); aspect-ratio: 1; border: 1px solid var(--mist); opacity: .8; }
+.ring.r2 { width: min(74vw, 420px); aspect-ratio: 1; border: 1px solid var(--stone); opacity: .35; animation-direction: reverse; }
+.ring.r3 { width: min(50vw, 280px); aspect-ratio: 1; border: 1px solid var(--mist); opacity: .6; }
 @keyframes breathe {
   0%, 100% { transform: translate(-50%, -50%) scale(1); }
   50% { transform: translate(-50%, -50%) scale(1.04); }
 }
-.hero > *:not(.ring) { position: relative; }
-.hero h1 { font-size: clamp(3.4rem, 10vw, 6.6rem); }
+.hero h1 { font-size: clamp(3.4rem, 9vw, 6.2rem); }
 .hero h1 em { font-weight: 300; }
 .rule { width: 48px; height: 1px; background: var(--stone); }
 .hero-tag {
@@ -125,7 +149,14 @@ nav.scrolled { border-bottom-color: var(--mist); }
   line-height: 1.55;
   max-width: 34ch;
 }
-.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; margin-top: .6rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: .4rem; }
+@media (max-width: 820px) { .actions { justify-content: center; } }
+.training-chip {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--stone-deep);
+  text-decoration: none;
+}
+.training-chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 0 4px rgba(68,187,87,.15); }
 .btn {
   display: inline-block;
   padding: .95rem 1.9rem;
@@ -219,6 +250,64 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
   .steps li, .steps li + li { padding: 1.8rem 0 0; border-left: 0; }
   .steps li + li { border-top: 1px solid var(--mist); margin-top: 1.8rem; }
 }
+
+/* Experience -> closing skill */
+.exp { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--mist); }
+.exp li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: clamp(1rem, 4vw, 3.5rem);
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--mist);
+}
+.exp-role { display: grid; gap: .35rem; align-content: start; min-width: 0; }
+.exp-role h3 { font-size: 1.5rem; font-weight: 400; }
+.exp-role .where { font-size: .78rem; letter-spacing: .08em; color: var(--stone-deep); }
+.exp-skill { display: grid; gap: .45rem; min-width: 0; }
+.exp-skill .label { color: var(--ember-deep); }
+.exp-skill p { color: #3d3833; font-size: .98rem; }
+@media (max-width: 700px) { .exp li { grid-template-columns: 1fr; gap: .9rem; } }
+
+/* Training */
+.training { background: var(--ink); color: var(--cream); }
+.training-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+.training .label { color: var(--stone); }
+.training h2 { font-size: clamp(2.2rem, 4.6vw, 3.3rem); }
+.training-text { display: grid; gap: 1.3rem; min-width: 0; }
+.training-text p { color: var(--mist); max-width: 54ch; }
+.logo-plate {
+  background: var(--cream);
+  padding: 1.4rem 1.8rem;
+  justify-self: start;
+}
+.logo-plate img { display: block; width: clamp(150px, 22vw, 210px); height: auto; }
+.progress { display: grid; gap: .7rem; margin-top: .4rem; max-width: 30rem; }
+.progress-head { display: flex; justify-content: space-between; gap: 1rem; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); font-variant-numeric: tabular-nums; }
+.weeks { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; }
+.weeks span { height: 6px; background: rgba(247,243,238,.14); }
+.weeks span.done { background: var(--ember); }
+.weeks span.now { background: var(--ember); opacity: .55; }
+.training-photo { position: relative; max-width: 380px; width: 100%; justify-self: center; }
+.training-photo .frame { aspect-ratio: 3 / 4; }
+.training-photo img { object-position: center top; }
+.photo-note { margin-top: 2.2rem; font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--mist); }
+@media (max-width: 820px) { .training-inner { grid-template-columns: 1fr; } }
+
+/* Photo strip */
+.strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 860px; gap: clamp(.8rem, 2vw, 1.4rem); }
+.strip figure { margin: 0; display: grid; gap: .8rem; min-width: 0; }
+.strip .ph { aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; background: var(--mist); }
+.strip img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s ease; }
+.strip figure:hover img { transform: scale(1.03); }
+.strip figcaption { display: grid; gap: .15rem; }
+.strip figcaption b { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; }
+.strip figcaption span { font-size: .85rem; color: #4a443f; }
+@media (max-width: 680px) { .strip { grid-template-columns: 1fr; } .strip .ph { aspect-ratio: 4 / 3; } }
 
 /* Quote */
 .quote {
@@ -320,6 +409,10 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .facts li span:first-child {
   font-size: .66rem; letter-spacing: .24em; text-transform: uppercase; color: var(--stone-deep); padding-top: .25rem;
 }
+.about .frame { background: transparent; }
+.about .frame::after { display: none; }
+.about .frame img { mix-blend-mode: multiply; object-position: center top; }
+@media (max-width: 520px) { .accent-box { right: -.6rem; bottom: -.6rem; width: 84px; height: 84px; } }
 @media (max-width: 820px) {
   .about-inner { grid-template-columns: 1fr; }
   .about-visual { margin-inline: auto; max-width: 340px; }
@@ -363,6 +456,7 @@ footer a:hover { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   .ring { animation: none; }
+  .strip img { transition: none; }
   html { scroll-behavior: auto; }
 }
 </style>
@@ -379,16 +473,24 @@ footer a:hover { color: var(--ink); }
 </nav>
 
 <header class="hero" id="top">
-  <span class="ring r1" aria-hidden="true"></span>
-  <span class="ring r2" aria-hidden="true"></span>
-  <span class="ring r3" aria-hidden="true"></span>
-  <span class="label">High-Ticket Sales Closer</span>
-  <h1>Lexa <em>Bush</em></h1>
-  <span class="rule" aria-hidden="true"></span>
-  <p class="hero-tag">Calm, honest sales conversations that turn your qualified leads into committed clients.</p>
-  <div class="actions">
-    <a class="btn" href="#contact">Work with me</a>
-    <a class="btn ghost" href="#approach">See how I close</a>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="label">High-Ticket Sales Closer</span>
+      <h1>Lexa <em>Bush</em></h1>
+      <span class="rule" aria-hidden="true"></span>
+      <p class="hero-tag">Calm, honest sales conversations that turn your qualified leads into committed clients.</p>
+      <div class="actions">
+        <a class="btn" href="#contact">Work with me</a>
+        <a class="btn ghost" href="#experience">Why hire me</a>
+      </div>
+      <a class="training-chip" href="#training"><span class="dot" aria-hidden="true"></span>Now training with She Sells Academy</a>
+    </div>
+    <div class="hero-figure">
+      <span class="ring r1" aria-hidden="true"></span>
+      <span class="ring r2" aria-hidden="true"></span>
+      <span class="ring r3" aria-hidden="true"></span>
+      <img src="images/lexa-standing.jpg" alt="Lexa Bush in a white button-down shirt and jeans" width="711" height="1100">
+    </div>
   </div>
 </header>
 
@@ -397,6 +499,62 @@ footer a:hover { color: var(--ink); }
   <h2 id="m-title">A great close is a decision the buyer is <em>proud</em> of.</h2>
   <p class="lead">Your leads already raised their hand. My job is to listen closely, find the real goal behind the application, and help the right people say yes with confidence. Nobody gets pushed into a program they don't need.</p>
   <p class="values">Listen<b>◆</b>Diagnose<b>◆</b>Prescribe<b>◆</b>Commit<b>◆</b>Follow through</p>
+</section>
+
+<section class="block" id="experience" aria-labelledby="e-title">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Experience</span>
+      <h2 id="e-title">New to closing. Not new to <em>selling</em>.</h2>
+      <p>Every role I've held has put me in front of people making a decision. Here is what each one taught me that I now bring to your sales calls.</p>
+    </div>
+    <ul class="exp">
+      <li>
+        <div class="exp-role"><h3>Real Estate Agent</h3><span class="where">West Hartford, CT · 2025 to present</span></div>
+        <div class="exp-skill"><span class="label">On a sales call</span><p>I close purchase and rental transactions on both the listing and buying side. Buyers making one of the biggest purchases of their lives taught me to slow down, ask better questions, and earn a confident yes.</p></div>
+      </li>
+      <li>
+        <div class="exp-role"><h3>Property Management Assistant</h3><span class="where">R&amp;M Property Management · 2024 to 2025</span></div>
+        <div class="exp-skill"><span class="label">On a sales call</span><p>I fielded a steady flow of tenant inquiries, logged everything in QuickBooks and took leases from first question to signature. That is lead response, clean notes and follow-through, every day.</p></div>
+      </li>
+      <li>
+        <div class="exp-role"><h3>Brand Design Intern</h3><span class="where">HRZN Branding Agency · London, 2023</span></div>
+        <div class="exp-skill"><span class="label">On a sales call</span><p>I ran a competitive analysis of services and price models and recommended a tiered service strategy. I understand how offers are built and priced, so I can explain the value of yours clearly.</p></div>
+      </li>
+      <li>
+        <div class="exp-role"><h3>Production, Photo &amp; Runway</h3><span class="where">New York Fashion Week · Rome · UConn</span></div>
+        <div class="exp-skill"><span class="label">On a sales call</span><p>Backstage at Fashion Week, in a Rome design studio and presenting concepts to clients, I learned to stay composed under pressure and to take feedback and adjust in real time.</p></div>
+      </li>
+      <li>
+        <div class="exp-role"><h3>Founder, The State of Creation</h3><span class="where">Wellness media brand · 2025 to present</span></div>
+        <div class="exp-skill"><span class="label">On a sales call</span><p>I build a wellness and self-mastery brand of my own, so I know the coaching and creator world from the inside. I speak your prospects' language because I'm part of it.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="block training" id="training" aria-labelledby="t-title">
+  <div class="wrap training-inner">
+    <div class="training-text">
+      <span class="label">Currently training</span>
+      <h2 id="t-title">Enrolled in <em>She Sells</em> Academy.</h2>
+      <p>I started the 12-week She Sells Academy program on September 24, 2026, to train specifically as a high-ticket closer. I'm learning the skills in a structured program and practicing them every week, so I come to your team with fresh training.</p>
+      <div class="logo-plate"><img src="images/she-sells.png" alt="She Sells" width="600" height="178"></div>
+      <div class="progress" aria-label="Course progress">
+        <div class="progress-head"><span id="week-label">Week 2 of 12</span><span>Sept 24 – Dec 17</span></div>
+        <div class="weeks" id="weeks" aria-hidden="true">
+          <span class="done"></span><span class="now"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+    <div class="training-photo">
+      <div style="position: relative">
+        <div class="frame"><img src="images/uconn-grad.jpg" alt="Lexa Bush at her University of Connecticut graduation outside Gampel Pavilion" width="1000" height="1509"></div>
+        <span class="accent-box" aria-hidden="true"></span>
+      </div>
+      <p class="photo-note">UConn, Class of 2024. Still a student of the craft.</p>
+    </div>
+  </div>
 </section>
 
 <section class="block" id="approach" aria-labelledby="a-title">
@@ -425,7 +583,7 @@ footer a:hover { color: var(--ink); }
     <div class="head">
       <span class="label">For offer owners</span>
       <h2 id="o-title">What you get when I join your <em>team</em></h2>
-      <p>For coaches, course creators and service businesses selling programs of $3,000 and up.</p>
+      <p>For coaches, course creators and service businesses selling high-ticket programs.</p>
     </div>
     <div class="offer">
       <div><h3>Your booked calls, handled</h3><p>I take the calls on your calendar so you can stay in delivery and content.</p></div>
@@ -439,10 +597,7 @@ footer a:hover { color: var(--ink); }
 <section class="block about" id="about" aria-labelledby="ab-title">
   <div class="wrap about-inner">
     <div class="about-visual">
-      <div class="frame">
-        <!-- Replace with: <img src="images/lexa.jpg" alt="Lexa Bush"> -->
-        <span class="frame-placeholder" aria-hidden="true">LB</span>
-      </div>
+      <div class="frame"><img src="images/lexa-portrait.jpg" alt="Portrait of Lexa Bush" width="1000" height="1333"></div>
       <span class="accent-box" aria-hidden="true"></span>
     </div>
     <div class="about-text">
@@ -452,10 +607,29 @@ footer a:hover { color: var(--ink); }
       <p>That taught me what high-ticket buyers need. They need someone who listens, tells the truth about fit, and makes the next step simple. I bring that to every sales call I take for your business.</p>
       <ul class="facts">
         <li><span>Based in</span><span>West Hartford, Connecticut. Remote calls worldwide.</span></li>
-        <li><span>Background</span><span>Real estate sales, production and content creation</span></li>
-        <li><span>Education</span><span>Business Management and Digital Media &amp; Design</span></li>
-        <li><span>Worked in</span><span>The United States, London and Rome</span></li>
+        <li><span>Currently</span><span>Real estate agent at Bush Real Estate. She Sells Academy student.</span></li>
+        <li><span>Education</span><span>University of Connecticut. B.S. Business Management, B.A. Digital Media &amp; Design</span></li>
+        <li><span>Worked in</span><span>Connecticut, New York, London and Rome</span></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="b-title">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Beyond the call</span>
+      <h2 id="b-title">Where I <em>recharge</em></h2>
+    </div>
+    <div class="strip">
+      <figure>
+        <div class="ph"><img src="images/dolomites.jpg" alt="Lexa standing on a dock at an alpine lake in the Dolomites" width="1000" height="1332" loading="lazy"></div>
+        <figcaption><b>The Dolomites, Italy</b><span>Italy, where I studied design and worked in Rome.</span></figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img src="images/sedona.jpg" alt="Lexa standing at the edge of red rock formations in Sedona" width="1000" height="1500" loading="lazy"></div>
+        <figcaption><b>Sedona, Arizona</b><span>Red rock trails and room to think.</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -492,6 +666,17 @@ footer a:hover { color: var(--ink); }
   function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 20); }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+
+  // Course progress: 12 weeks starting Sept 24, 2026
+  var start = new Date(2026, 8, 24);
+  var days = Math.floor((Date.now() - start.getTime()) / 86400000);
+  var week = Math.min(12, Math.max(1, Math.floor(days / 7) + 1));
+  var label = document.getElementById('week-label');
+  var bars = document.querySelectorAll('#weeks span');
+  if (days >= 84) { label.textContent = 'Completed'; week = 13; }
+  else { label.textContent = 'Week ' + week + ' of 12'; }
+  bars.forEach(function (b, i) { b.className = i < week - 1 ? 'done' : (i === week - 1 ? 'now' : ''); });
 
   var btn = document.getElementById('copy-btn');
   var email = document.getElementById('email');

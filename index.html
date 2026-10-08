@@ -270,6 +270,13 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .exp-skill p { color: #3d3833; font-size: .98rem; }
 @media (max-width: 700px) { .exp li { grid-template-columns: 1fr; gap: .9rem; } }
 
+/* Intro letter */
+.intro { border-top: 1px solid var(--mist); }
+.intro-inner { max-width: 40rem; margin: 0 auto; display: grid; justify-items: center; gap: 1.3rem; text-align: center; }
+.intro-lead { font-size: clamp(2rem, 4.2vw, 2.9rem); }
+.intro-inner p { color: #3d3833; font-size: 1.05rem; line-height: 1.8; }
+.intro-inner p.intro-close { font-family: var(--serif); font-style: italic; font-size: clamp(1.25rem, 2.4vw, 1.45rem); line-height: 1.55; color: var(--ink); }
+
 /* Training */
 .training { background: var(--ink); color: var(--cream); }
 .training-inner {
@@ -496,6 +503,17 @@ footer a:hover { color: var(--ink); }
   </div>
 </header>
 
+<section class="block intro" id="hello" aria-labelledby="h-title">
+  <div class="intro-inner">
+    <span class="label">A note from me</span>
+    <h2 id="h-title" class="intro-lead">Hello! My name is Alexa Bush.</h2>
+    <p>I am currently studying sales as a professional skillset. I am passionate about personal development in so many aspects and I am excited to encourage others to enact change in their life.</p>
+    <p>I bring warmth and understanding to every single conversation. I am learning how to truly motivate someone to take action. I take steps every day in the direction of courage and purpose so I have the conviction to bring to others.</p>
+    <p class="intro-close">I would love to talk about your offer to see if it is something I can truly bring my energy and enthusiasm for to each conversation.</p>
+    <span class="rule" aria-hidden="true"></span>
+  </div>
+</section>
+
 <section class="block training" id="training" aria-labelledby="t-title">
   <div class="wrap training-inner">
     <div class="training-text">
@@ -533,6 +551,11 @@ footer a:hover { color: var(--ink); }
         <li><span>Based in</span><span>West Hartford, Connecticut. Remote calls worldwide.</span></li>
         <li><span>Currently</span><span>Real estate agent at Bush Real Estate. She Sells Academy student.</span></li>
         <li><span>Education</span><span>University of Connecticut. B.S. Business Management, B.A. Digital Media &amp; Design</span></li>
+        <li><span>Property</span><span>Property management assistant, R&amp;M Property Management. Leasing and tenant relations.</span></li>
+        <li><span>Founder</span><span>The State of Creation, a wellness and self-mastery brand</span></li>
+        <li><span>Production</span><span>Production assistant, photographer and runway model, New York Fashion Week</span></li>
+        <li><span>Design</span><span>Brand design intern, HRZN Branding Agency, London. Studio assistant, Rome.</span></li>
+        <li><span>Marketing</span><span>Marketing associate, UConn Student Recreation Center</span></li>
       </ul>
     </div>
   </div>

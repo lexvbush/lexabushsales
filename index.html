@@ -302,8 +302,8 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .weeks span.done { background: var(--ember); }
 .weeks span.now { background: var(--ember); opacity: .55; }
 .training-photo { position: relative; max-width: 380px; width: 100%; justify-self: center; }
-.training-photo .frame { aspect-ratio: 3 / 4; }
-.training-photo img { object-position: center top; }
+.training-photo .frame { aspect-ratio: 2 / 3; }
+.training-photo img { object-position: center center; }
 .photo-note { margin-top: 2.2rem; font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--mist); }
 @media (max-width: 820px) { .training-inner { grid-template-columns: 1fr; } }
 
@@ -422,6 +422,9 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .about .frame::after { display: none; }
 .about .frame img { mix-blend-mode: multiply; object-position: center top; }
 @media (max-width: 520px) { .accent-box { right: -.6rem; bottom: -.6rem; width: 84px; height: 84px; } }
+.facts .tags { display: flex; flex-wrap: wrap; gap: .45rem; }
+.facts .tag { font-size: .78rem; padding: .25rem .7rem; border: 1px solid var(--mist); border-radius: 999px; background: var(--warm-white); color: var(--ink); white-space: nowrap; }
+.facts li span.tags span:first-child { font-size: .78rem; letter-spacing: normal; text-transform: none; color: var(--ink); padding-top: .25rem; }
 @media (max-width: 820px) {
   .about-inner { grid-template-columns: 1fr; }
   .about-visual { margin-inline: auto; max-width: 340px; }
@@ -530,7 +533,7 @@ footer a:hover { color: var(--ink); }
     </div>
     <div class="training-photo">
       <div style="position: relative">
-        <div class="frame"><img src="images/uconn-grad.jpg" alt="Alexa Bush at her University of Connecticut graduation outside Gampel Pavilion" width="1000" height="1509"></div>
+        <div class="frame"><img src="images/uconn-grad.jpg" alt="Alexa Bush at her University of Connecticut graduation outside Gampel Pavilion" width="700" height="1050"></div>
         <span class="accent-box" aria-hidden="true"></span>
       </div>
       <p class="photo-note">Always a student of life.</p>
@@ -551,6 +554,7 @@ footer a:hover { color: var(--ink); }
         <li><span>Based in</span><span>West Hartford, Connecticut. Remote calls worldwide.</span></li>
         <li><span>Currently</span><span>Real estate agent at Bush Real Estate. She Sells Academy student.</span></li>
         <li><span>Education</span><span>University of Connecticut. B.S. Business Management, B.A. Digital Media &amp; Design</span></li>
+        <li><span>Interests</span><span class="tags"><span class="tag">Wellness</span><span class="tag">Fitness</span><span class="tag">Real estate</span><span class="tag">Finance</span><span class="tag">Personal development</span><span class="tag">Emerging technology</span><span class="tag">Design &amp; branding</span><span class="tag">Philosophy</span><span class="tag">Travel</span></span></li>
       </ul>
     </div>
   </div>

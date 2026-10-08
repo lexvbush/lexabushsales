@@ -169,6 +169,7 @@ nav.scrolled { border-bottom-color: var(--mist); }
   text-transform: uppercase;
   text-decoration: none;
   border: 1px solid var(--ink);
+  border-radius: 999px;
   background: var(--ink);
   color: var(--warm-white);
   cursor: pointer;
@@ -271,7 +272,37 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 @media (max-width: 700px) { .exp li { grid-template-columns: 1fr; gap: .9rem; } }
 
 /* Intro letter */
-.intro { border-top: 1px solid var(--mist); }
+.intro {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(68,187,87,.10), transparent 70%),
+    linear-gradient(180deg, #f3f8f1 0%, #eaf4e7 100%);
+  border-block: 1px solid #d5e8d0;
+}
+.intro::before, .intro::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+}
+.intro::before {
+  width: min(160vw, 1400px); aspect-ratio: 1;
+  background: repeating-radial-gradient(circle at 50% 50%, transparent 0 63px, rgba(68,187,87,.20) 63px 64px);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 70%);
+          mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 70%);
+}
+.intro::after {
+  width: min(110vw, 760px); aspect-ratio: 1;
+  border: 1px solid rgba(68,187,87,.22);
+  animation: breathe 10s ease-in-out infinite;
+}
+.intro .rule { background: var(--ember); opacity: .6; }
+.intro .label { color: var(--ember-deep); }
 .intro-inner { max-width: 40rem; margin: 0 auto; display: grid; justify-items: center; gap: 1.3rem; text-align: center; }
 .intro-lead { font-size: clamp(2rem, 4.2vw, 2.9rem); }
 .intro-inner p { color: #3d3833; font-size: 1.05rem; line-height: 1.8; }
@@ -469,6 +500,7 @@ footer a:hover { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   .ring { animation: none; }
   .strip img { transition: none; }
+  .intro::after { animation: none; }
   html { scroll-behavior: auto; }
 }
 </style>
@@ -560,6 +592,23 @@ footer a:hover { color: var(--ink); }
   </div>
 </section>
 
+<section class="block contact" id="contact" aria-labelledby="c-title">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Contact</span>
+      <h2 id="c-title">Hiring a <em>closer</em>?</h2>
+      <p>Tell me about your offer, your price point and how many calls you book each week.</p>
+    </div>
+    <div class="contact-lines">
+      <div class="email-row">
+        <a class="email" id="email" href="mailto:lexabushsales@gmail.com">lexabushsales@gmail.com</a>
+        <button class="copy" id="copy-btn" type="button">Copy</button>
+      </div>
+      <a class="btn ghost" href="https://www.instagram.com/lexvbush/" target="_blank" rel="noopener">Instagram · @lexvbush</a>
+    </div>
+  </div>
+</section>
+
 <section class="block" aria-labelledby="b-title">
   <div class="wrap">
     <div class="head">
@@ -579,22 +628,6 @@ footer a:hover { color: var(--ink); }
   </div>
 </section>
 
-<section class="block contact" id="contact" aria-labelledby="c-title">
-  <div class="wrap">
-    <div class="head">
-      <span class="label">Contact</span>
-      <h2 id="c-title">Hiring a <em>closer</em>?</h2>
-      <p>Tell me about your offer, your price point and how many calls you book each week.</p>
-    </div>
-    <div class="contact-lines">
-      <div class="email-row">
-        <a class="email" id="email" href="mailto:lexabushsales@gmail.com">lexabushsales@gmail.com</a>
-        <button class="copy" id="copy-btn" type="button">Copy</button>
-      </div>
-      <a class="btn ghost" href="https://www.instagram.com/lexvbush/" target="_blank" rel="noopener">Instagram · @lexvbush</a>
-    </div>
-  </div>
-</section>
 
 <footer>
   <span>© 2026 Alexa Bush</span>

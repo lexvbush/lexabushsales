@@ -419,7 +419,9 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 }
 .about-text { display: grid; gap: 1.3rem; min-width: 0; }
 .about-text h2 { font-size: clamp(2.2rem, 4.6vw, 3.3rem); }
-.about-text p { color: #3d3833; max-width: 56ch; }
+.about-text p { color: #3d3833; max-width: 62ch; line-height: 1.85; }
+.about-text p.about-close { font-family: var(--serif); font-style: italic; font-size: clamp(1.25rem, 2.4vw, 1.45rem); line-height: 1.5; color: var(--ink); }
+.about-text .facts { margin-top: 1.2rem; }
 .facts {
   list-style: none; margin: .6rem 0 0; padding: 0;
   display: grid; gap: 0;
@@ -466,7 +468,7 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .contact .copy:hover { border-color: var(--cream); }
 .contact .btn.ghost { color: var(--cream); border-color: var(--cream); }
 .contact .btn.ghost:hover { background: var(--cream); color: var(--ink); }
-.contact .head { margin-inline: auto; justify-items: center; }
+.contact .head { margin-inline: auto; justify-items: center; margin-bottom: 1.6rem; }
 .contact-lines { display: grid; justify-items: center; gap: 1.2rem; }
 .email-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .8rem 1.2rem; }
 .email {
@@ -491,17 +493,18 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .passions-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-top: 1px solid var(--mist);
+  gap: 1.1rem;
 }
 .passion {
   min-width: 0;
-  padding: 2.2rem 2.4rem 2.2rem 0;
-  border-bottom: 1px solid var(--mist);
+  padding: 1.8rem 2rem;
+  border: 1px solid var(--mist);
+  border-radius: 22px;
+  background: var(--cream);
   display: grid;
   align-content: start;
   gap: .75rem;
 }
-.passion:nth-child(even) { padding-left: 2.4rem; padding-right: 0; border-left: 1px solid var(--mist); }
 .passion-top { display: flex; align-items: baseline; gap: 1rem; }
 .passion-n { font-family: var(--serif); font-size: 1.1rem; color: var(--ember); font-weight: 400; }
 .passion h3 { font-size: 1.75rem; font-weight: 400; }
@@ -512,7 +515,7 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .passion a.more { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ember-deep); text-decoration: none; border-bottom: 1px solid currentColor; justify-self: start; }
 @media (max-width: 760px) {
   .passions-grid { grid-template-columns: 1fr; }
-  .passion, .passion:nth-child(even) { padding: 2rem 0; border-left: 0; }
+  .passion { padding: 1.5rem 1.4rem; }
 }
 .contact .btn.cal { background: var(--ember); border-color: var(--ember); color: var(--ink); }
 .contact .btn.cal:hover { background: var(--cream); border-color: var(--cream); }
@@ -572,7 +575,7 @@ footer a:hover { color: var(--ink); }
   <div class="intro-inner">
     <span class="label">A note from me</span>
     <h2 id="h-title" class="intro-lead">Hello!</h2>
-    <p>I am developing a professional skillset in high-ticket sales through the She Sells Academy.<br>I am deeply passionate about personal development and I am honored to be moving forward in a career where I can act on my Why: To encourage others to enact real change in their lives.</p>
+    <p>I am developing a professional skillset in high-ticket sales through the She Sells Academy.<br>I am deeply passionate about personal development, and I am honored to be moving forward in a career where I can act on my Why: to encourage others to enact real change in their lives.</p>
     <p>I bring warmth and understanding to every conversation.</p>
     <p class="intro-close">I'd love to talk about your offer to see if it's one I can bring real energy and conviction to on every call.</p>
     <span class="rule" aria-hidden="true"></span>
@@ -584,7 +587,7 @@ footer a:hover { color: var(--ink); }
     <div class="training-text">
       <span class="label">Currently training</span>
       <h2 id="t-title">Enrolled in the <em>She Sells</em> Academy.</h2>
-      <p>I started the 12-week She Sells Academy program in September of 2026, to train specifically as a high-ticket remote closer. I'm learning the skills and practicing them daily with the truly incredible She Sells network.</p>
+      <p>I started the 12-week She Sells Academy program in September 2026 to train specifically as a high-ticket remote closer. I'm learning the skills and practicing them daily with the incredible She Sells network.</p>
       <div class="logo-plate"><img src="images/she-sells.png" alt="She Sells" width="600" height="178"></div>
       <div class="progress" aria-label="Course progress">
         <div class="progress-head"><span id="week-label">Week 2 of 12</span><span>Sept 24 – Dec 17</span></div>
@@ -609,6 +612,11 @@ footer a:hover { color: var(--ink); }
     <div class="about-text">
       <span class="label">About</span>
       <h2 id="ab-title">Conversations that create <em>clarity</em> and <em>motivation</em>.</h2>
+      <p>Thank you for taking the time to review my website. I am passionate about life, pursuing purpose and potential, and tuning in to the source of creative energy.</p>
+      <p>I have three younger siblings and have always sought to be an inspiring leader for my family. I have lived in Connecticut for most of my life, and I have also had the opportunity to travel around Europe, often alone, with only a backpack.</p>
+      <p>I love connecting with people and learning how we are the same and how we are different. I have so much love to give, and every day I push forward into the unknown because I know there is more beyond fear.</p>
+      <p>I would love to connect with people who are deeply passionate about helping others on their individual journeys in wellness, health, business, mindset and more.</p>
+      <p class="about-close">Thank you for reading, and I hope to talk to you soon.</p>
       <ul class="facts">
         <li><span>Based in</span><span>Connecticut. Remote calls worldwide.</span></li>
         <li><span>Currently</span><span>Real Estate Agent at Bush Real Estate. She Sells Academy student.</span></li>
@@ -632,11 +640,11 @@ footer a:hover { color: var(--ink); }
       </div>
       <div class="passion">
         <div class="passion-top"><span class="passion-n">02</span><h3>Tech &amp; AI</h3></div>
-        <p>I use AI tools every day for all of my professional endeavors. Web design, deliverables, and health research to name a few.</p>
+        <p>I use AI tools every day across my professional work, from web design and client deliverables to health research.</p>
       </div>
       <div class="passion">
         <div class="passion-top"><span class="passion-n">03</span><h3>Design &amp; creative</h3></div>
-        <p>I have a degree in Digital Media &amp; Design and experience in film production, social media content, photography, graphic and web design.</p>
+        <p>I have a degree in Digital Media &amp; Design and experience in film production, social media content, photography, and graphic and web design.</p>
       </div>
       <div class="passion">
         <div class="passion-top"><span class="passion-n">04</span><h3>Women's empowerment</h3></div>
@@ -644,7 +652,7 @@ footer a:hover { color: var(--ink); }
       </div>
       <div class="passion">
         <div class="passion-top"><span class="passion-n">05</span><h3>Fitness &amp; movement</h3></div>
-        <p>I have been strength training for a few years and I know that movement is essential to a healthy mind and spirit.</p>
+        <p>I have been strength training for a few years, and I know that movement is essential to a healthy mind and spirit.</p>
       </div>
       <div class="passion">
         <div class="passion-top"><span class="passion-n">06</span><h3>Wellness &amp; health</h3></div>
@@ -684,7 +692,7 @@ footer a:hover { color: var(--ink); }
 <section class="block" aria-labelledby="b-title">
   <div class="wrap">
     <div class="head">
-      <span class="label">A picture speaks a thousand words.</span>
+      <span class="label">A picture is worth a thousand words</span>
       <h2 id="b-title">Travels</h2>
     </div>
     <div class="strip">

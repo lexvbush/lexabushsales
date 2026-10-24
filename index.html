@@ -7,6 +7,7 @@
 <meta name="description" content="Alexa Bush is a high-ticket sales closer for coaches, course creators and offer owners.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
 <style>
 /* Layout: the State of Creation system carried over. Breathing-circle hero, ink manifesto band with a watermark monogram, cream about split, quiet uppercase labels. Single light look by design. */
@@ -380,7 +381,8 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .about { background: var(--cream); }
 .about-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 760px;
   gap: clamp(3rem, 7vw, 6rem);
   align-items: center;
 }
@@ -485,13 +487,43 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .copy:hover { border-color: var(--ink); }
 .contact small { color: var(--stone-deep); font-size: .85rem; }
 
+/* Passions */
+.passions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--mist);
+}
+.passion {
+  min-width: 0;
+  padding: 2.2rem 2.4rem 2.2rem 0;
+  border-bottom: 1px solid var(--mist);
+  display: grid;
+  align-content: start;
+  gap: .75rem;
+}
+.passion:nth-child(even) { padding-left: 2.4rem; padding-right: 0; border-left: 1px solid var(--mist); }
+.passion-top { display: flex; align-items: baseline; gap: 1rem; }
+.passion-n { font-family: var(--serif); font-size: 1.1rem; color: var(--ember); font-weight: 400; }
+.passion h3 { font-size: 1.75rem; font-weight: 400; }
+.passion p { font-size: 1rem; line-height: 1.8; color: #4a443f; }
+.passion .oncall { display: grid; gap: .3rem; margin-top: .3rem; padding-left: 1rem; border-left: 2px solid var(--ember); }
+.passion .oncall .label { color: var(--ember-deep); }
+.passion .oncall p { color: var(--ink); font-family: var(--serif); font-style: italic; font-size: 1.15rem; line-height: 1.45; }
+.passion a.more { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ember-deep); text-decoration: none; border-bottom: 1px solid currentColor; justify-self: start; }
+@media (max-width: 760px) {
+  .passions-grid { grid-template-columns: 1fr; }
+  .passion, .passion:nth-child(even) { padding: 2rem 0; border-left: 0; }
+}
+.contact .btn.cal { background: var(--ember); border-color: var(--ember); color: var(--ink); }
+.contact .btn.cal:hover { background: var(--cream); border-color: var(--cream); }
+
 footer {
   border-top: 1px solid var(--mist);
   padding: 2rem var(--gutter);
   display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;
   font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; color: var(--stone-deep);
 }
-footer nav { all: unset; display: flex; gap: 1.6rem; }
+footer nav { all: unset; display: flex; flex-wrap: wrap; gap: .8rem 1.6rem; }
 footer a { text-decoration: none; }
 footer a:hover { color: var(--ink); }
 
@@ -508,6 +540,7 @@ footer a:hover { color: var(--ink); }
   <a class="nav-logo" href="#top">Alexa Bush</a>
   <div class="nav-links">
     <a href="#training" class="hide-sm">Training</a>
+    <a href="#passions" class="hide-sm">Passions</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
@@ -521,7 +554,7 @@ footer a:hover { color: var(--ink); }
       <span class="rule" aria-hidden="true"></span>
       <p class="hero-tag">Calm, honest sales conversations that turn your qualified leads into committed clients.</p>
       <div class="actions">
-        <a class="btn" href="#contact">Work with me</a>
+        <a class="btn cal-open" href="https://calendly.com/lexvbush" target="_blank" rel="noopener">Book a call</a>
         <a class="btn ghost" href="#about">About me</a>
       </div>
       <a class="training-chip" href="#training"><span class="dot" aria-hidden="true"></span>Now training with She Sells Academy</a>
@@ -539,9 +572,9 @@ footer a:hover { color: var(--ink); }
   <div class="intro-inner">
     <span class="label">A note from me</span>
     <h2 id="h-title" class="intro-lead">Hello!</h2>
-    <p>I'm currently developing my professional sales skills through She Sells Academy. I'm passionate about personal development in all its forms, and I'm excited to encourage others to make real change in their lives.</p>
-    <p>I bring warmth and understanding to every conversation, and I'm learning how to truly motivate people to take action. Each day I move forward with courage and purpose, so I can bring that same conviction to the people I talk with.</p>
-    <p class="intro-close">I'd love to talk about your offer and see if it's one I can bring real energy and enthusiasm to on every call.</p>
+    <p>I am developing a professional skillset in high-ticket sales through the She Sells Academy.<br>I am deeply passionate about personal development and I am honored to be moving forward in a career where I can act on my Why: To encourage others to enact real change in their lives.</p>
+    <p>I bring warmth and understanding to every conversation.</p>
+    <p class="intro-close">I'd love to talk about your offer to see if it's one I can bring real energy and conviction to on every call.</p>
     <span class="rule" aria-hidden="true"></span>
   </div>
 </section>
@@ -550,8 +583,8 @@ footer a:hover { color: var(--ink); }
   <div class="wrap training-inner">
     <div class="training-text">
       <span class="label">Currently training</span>
-      <h2 id="t-title">Enrolled in <em>She Sells</em> Academy.</h2>
-      <p>I started the 12-week She Sells Academy program on September 24, 2026, to train specifically as a high-ticket closer. I'm learning the skills in a structured program and practicing them every week, so I come to your team with fresh training.</p>
+      <h2 id="t-title">Enrolled in the <em>She Sells</em> Academy.</h2>
+      <p>I started the 12-week She Sells Academy program in September of 2026, to train specifically as a high-ticket remote closer. I'm learning the skills and practicing them daily with the truly incredible She Sells network.</p>
       <div class="logo-plate"><img src="images/she-sells.png" alt="She Sells" width="600" height="178"></div>
       <div class="progress" aria-label="Course progress">
         <div class="progress-head"><span id="week-label">Week 2 of 12</span><span>Sept 24 – Dec 17</span></div>
@@ -573,19 +606,59 @@ footer a:hover { color: var(--ink); }
 
 <section class="block about" id="about" aria-labelledby="ab-title">
   <div class="wrap about-inner">
-    <div class="about-visual">
-      <div class="frame"><img src="images/lexa-portrait.jpg" alt="Portrait of Alexa Bush" width="1000" height="1333"></div>
-      <span class="accent-box" aria-hidden="true"></span>
-    </div>
     <div class="about-text">
       <span class="label">About</span>
       <h2 id="ab-title">Conversations that create <em>clarity</em> and <em>motivation</em>.</h2>
       <ul class="facts">
-        <li><span>Based in</span><span>West Hartford, Connecticut. Remote calls worldwide.</span></li>
-        <li><span>Currently</span><span>Real estate agent at Bush Real Estate. She Sells Academy student.</span></li>
+        <li><span>Based in</span><span>Connecticut. Remote calls worldwide.</span></li>
+        <li><span>Currently</span><span>Real Estate Agent at Bush Real Estate. She Sells Academy student.</span></li>
         <li><span>Education</span><span>University of Connecticut. B.S. Business Management, B.A. Digital Media &amp; Design</span></li>
-        <li><span>Interests</span><span class="tags"><span class="tag">Wellness</span><span class="tag">Fitness</span><span class="tag">Real estate</span><span class="tag">Finance</span><span class="tag">Personal development</span><span class="tag">Emerging technology</span><span class="tag">Design &amp; branding</span><span class="tag">Philosophy</span><span class="tag">Travel</span></span></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="passions" aria-labelledby="p-title">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Interests</span>
+      <h2 id="p-title">Offers I'd <em>love</em> to close.</h2>
+      <p>Passion for an offer is essential. Here are some of my personal and professional interests.</p>
+    </div>
+    <div class="passions-grid">
+      <div class="passion">
+        <div class="passion-top"><span class="passion-n">01</span><h3>Real estate</h3></div>
+        <p>I'm a licensed real estate agent at Bush Real Estate in Connecticut. We love getting a deal to the close.</p>
+      </div>
+      <div class="passion">
+        <div class="passion-top"><span class="passion-n">02</span><h3>Tech &amp; AI</h3></div>
+        <p>I use AI tools every day for all of my professional endeavors. Web design, deliverables, and health research to name a few.</p>
+      </div>
+      <div class="passion">
+        <div class="passion-top"><span class="passion-n">03</span><h3>Design &amp; creative</h3></div>
+        <p>I have a degree in Digital Media &amp; Design and experience in film production, social media content, photography, graphic and web design.</p>
+      </div>
+      <div class="passion">
+        <div class="passion-top"><span class="passion-n">04</span><h3>Women's empowerment</h3></div>
+        <p>I'm training alongside the women of She Sells Academy and care about women building independent careers.</p>
+      </div>
+      <div class="passion">
+        <div class="passion-top"><span class="passion-n">05</span><h3>Fitness &amp; movement</h3></div>
+        <p>I have been strength training for a few years and I know that movement is essential to a healthy mind and spirit.</p>
+      </div>
+      <div class="passion">
+        <div class="passion-top"><span class="passion-n">06</span><h3>Wellness &amp; health</h3></div>
+        <p>I've long been interested in wellness, from daily habits to wellness retreats and hospitality.</p>
+      </div>
+      <div class="passion">
+        <div class="passion-top"><span class="passion-n">07</span><h3>Mindset &amp; personal growth</h3></div>
+        <p>I study spiritual philosophy and make personal growth a daily practice. This is one of my favorite conversation topics.</p>
+      </div>
+      <div class="passion">
+        <div class="passion-top"><span class="passion-n">08</span><h3>The State of <em>Creation</em></h3></div>
+        <p>My personal brand, built on purpose, courage and wellness.</p>
+        <a class="more" href="https://thestateofcreation.com" target="_blank" rel="noopener">Visit thestateofcreation.com</a>
+      </div>
     </div>
   </div>
 </section>
@@ -594,10 +667,11 @@ footer a:hover { color: var(--ink); }
   <div class="wrap">
     <div class="head">
       <span class="label">Contact</span>
-      <h2 id="c-title">Hiring a <em>closer</em>?</h2>
-      <p>Tell me about your offer, your price point and how many calls you book each week.</p>
+      <h2 id="c-title">Let's <em>connect</em>.</h2>
+      <p>Book a time on my calendar, or email me about your offer.</p>
     </div>
     <div class="contact-lines">
+      <a class="btn cal cal-open" href="https://calendly.com/lexvbush" target="_blank" rel="noopener">Book a call</a>
       <div class="email-row">
         <a class="email" id="email" href="mailto:lexabushsales@gmail.com">lexabushsales@gmail.com</a>
         <button class="copy" id="copy-btn" type="button">Copy</button>
@@ -610,8 +684,8 @@ footer a:hover { color: var(--ink); }
 <section class="block" aria-labelledby="b-title">
   <div class="wrap">
     <div class="head">
-      <span class="label">Beyond the call</span>
-      <h2 id="b-title">Where I <em>recharge</em></h2>
+      <span class="label">A picture speaks a thousand words.</span>
+      <h2 id="b-title">Travels</h2>
     </div>
     <div class="strip">
       <figure>
@@ -631,13 +705,23 @@ footer a:hover { color: var(--ink); }
   <span>© 2026 Alexa Bush</span>
   <nav aria-label="Footer">
     <a href="#training">Training</a>
+    <a href="#passions">Passions</a>
     <a href="#about">About</a>
+    <a class="cal-open" href="https://calendly.com/lexvbush" target="_blank" rel="noopener">Book a call</a>
     <a href="https://www.instagram.com/lexvbush/" target="_blank" rel="noopener">Instagram</a>
   </nav>
 </footer>
 
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
 (function () {
+  // Calendly pop-up; the plain link still works if the script is blocked
+  document.querySelectorAll('.cal-open').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (window.Calendly && Calendly.initPopupWidget) { e.preventDefault(); Calendly.initPopupWidget({ url: 'https://calendly.com/lexvbush?hide_gdpr_banner=1&primary_color=44bb57' }); }
+    });
+  });
+
   var nav = document.getElementById('top-nav');
   function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 20); }
   window.addEventListener('scroll', onScroll, { passive: true });

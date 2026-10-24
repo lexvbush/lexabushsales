@@ -323,8 +323,8 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .weeks span.done { background: var(--ember); }
 .weeks span.now { background: var(--ember); opacity: .55; }
 .training-photo { position: relative; max-width: 380px; width: 100%; justify-self: center; }
-.training-photo .frame { aspect-ratio: 2 / 3; }
-.training-photo img { object-position: center center; }
+.training-photo .frame { aspect-ratio: 4 / 5; }
+.training-photo img { object-position: center 30%; }
 .photo-caption { margin-top: 2.2rem; font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--stone); }
 .photo-note { margin-top: .4rem; font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--mist); }
 @media (max-width: 820px) { .training-inner { grid-template-columns: 1fr; } }
@@ -494,37 +494,53 @@ section.block { padding: clamp(5rem, 10vw, 7.5rem) var(--gutter); }
 .copy:hover { border-color: var(--ink); }
 .contact small { color: var(--stone-deep); font-size: .85rem; }
 
-/* Passions */
-.passions-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: .9rem;
+/* Interests */
+.interests { position: relative; overflow: hidden; text-align: center; }
+.interests::before {
+  content: "";
+  position: absolute; top: 58%; left: 50%;
+  width: min(120vw, 1100px); aspect-ratio: 1;
+  border: 1px solid var(--mist); border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
-.passion {
-  min-width: 0;
-  padding: 1.4rem 1.5rem;
-  border: 1px solid rgba(68, 187, 87, .32);
-  border-radius: 22px;
-  background: rgba(68, 187, 87, .09);
-  display: grid;
-  align-content: center;
-  gap: .6rem;
+.interests::after {
+  content: "";
+  position: absolute; top: 58%; left: 50%;
+  width: min(90vw, 780px); aspect-ratio: 1;
+  border: 1px solid rgba(68, 187, 87, .25); border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
-.passion-link { text-decoration: none; color: inherit; transition: background .25s, border-color .25s; }
-.passion-link:hover { background: rgba(68, 187, 87, .16); border-color: rgba(68, 187, 87, .55); }
-.passion .ext { font-size: .9rem; color: var(--ember-deep); }
-.passion-top { display: flex; align-items: baseline; gap: 1rem; }
-.passion-n { font-family: var(--serif); font-size: 1.1rem; color: var(--ember); font-weight: 400; }
-.passion h3 { font-size: 1.45rem; font-weight: 400; }
-.passion p { font-size: 1rem; line-height: 1.8; color: #4a443f; }
-.passion .oncall { display: grid; gap: .3rem; margin-top: .3rem; padding-left: 1rem; border-left: 2px solid var(--ember); }
-.passion .oncall .label { color: var(--ember-deep); }
-.passion .oncall p { color: var(--ink); font-family: var(--serif); font-style: italic; font-size: 1.15rem; line-height: 1.45; }
-.passion a.more { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--ember-deep); text-decoration: none; border-bottom: 1px solid currentColor; justify-self: start; }
-@media (max-width: 1000px) { .passions-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 520px) {
-  .passions-grid { grid-template-columns: 1fr; }
-  .passion { padding: 1.2rem 1.3rem; }
+.interests .wrap { position: relative; z-index: 1; }
+.interests .head { margin-inline: auto; justify-items: center; }
+.interest-list {
+  list-style: none; margin: 0 auto; padding: 0;
+  max-width: 980px;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
+  gap: .5rem clamp(1.6rem, 3.6vw, 3rem);
+}
+.interest-list li {
+  display: inline-flex; align-items: baseline;
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.7rem, 4.2vw, 3rem); line-height: 1.25;
+}
+.interest-list span, .interest-list a {
+  color: var(--ink); text-decoration: none;
+  transition: color .35s ease;
+}
+.interest-list span:hover, .interest-list a:hover { color: var(--ember-deep); font-style: italic; }
+.interest-list sup {
+  font-family: var(--sans); font-style: normal; font-size: .62rem; font-weight: 400;
+  letter-spacing: .12em; color: var(--ember-deep);
+  margin-right: .35em; vertical-align: super;
+}
+.interest-list i { color: var(--ember); }
+.interest-list .ext { font-family: var(--sans); font-size: .9rem; color: var(--ember-deep); margin-left: .3em; }
+@media (max-width: 640px) {
+  .interest-list { flex-direction: column; align-items: center; gap: .5rem; }
+  .interests::before, .interests::after { top: 66%; opacity: .6; }
+  .interest-list li { font-size: 1.75rem; }
 }
 .contact .btn.cal { background: var(--ember); border-color: var(--ember); color: var(--ink); }
 .contact .btn.cal:hover { background: var(--cream); border-color: var(--cream); }
@@ -607,7 +623,7 @@ footer a:hover { color: var(--ink); }
     </div>
     <div class="training-photo">
       <div style="position: relative">
-        <div class="frame"><img src="images/uconn-grad.jpg" alt="Alexa Bush at her University of Connecticut graduation outside Gampel Pavilion" width="700" height="1050"></div>
+        <div class="frame"><img src="images/alexa-grad.jpg" alt="Alexa Bush in a white lace dress holding her graduation cap at the University of Connecticut" width="824" height="1045"></div>
         <span class="accent-box" aria-hidden="true"></span>
       </div>
       <p class="photo-caption">UConn Graduate 2024</p>
@@ -616,39 +632,23 @@ footer a:hover { color: var(--ink); }
   </div>
 </section>
 
-<section class="block" id="passions" aria-labelledby="p-title">
+<section class="block interests" id="passions" aria-labelledby="p-title">
   <div class="wrap">
     <div class="head">
       <span class="label">Interests</span>
       <h2 id="p-title">Offers I'd <em>love</em> to close.</h2>
       <p>Passion for an offer is essential. Here are some of my personal and professional interests.</p>
     </div>
-    <div class="passions-grid">
-      <div class="passion">
-        <div class="passion-top"><span class="passion-n">01</span><h3>Wellness &amp; health</h3></div>
-      </div>
-      <div class="passion">
-        <div class="passion-top"><span class="passion-n">02</span><h3>Fitness &amp; movement</h3></div>
-      </div>
-      <div class="passion">
-        <div class="passion-top"><span class="passion-n">03</span><h3>Mindset &amp; personal growth</h3></div>
-      </div>
-      <div class="passion">
-        <div class="passion-top"><span class="passion-n">04</span><h3>Design &amp; creative</h3></div>
-      </div>
-      <div class="passion">
-        <div class="passion-top"><span class="passion-n">05</span><h3>Real estate</h3></div>
-      </div>
-      <div class="passion">
-        <div class="passion-top"><span class="passion-n">06</span><h3>Tech &amp; AI</h3></div>
-      </div>
-      <a class="passion passion-link" href="https://thestateofcreation.com" target="_blank" rel="noopener" aria-label="The State of Creation (opens thestateofcreation.com)">
-        <div class="passion-top"><span class="passion-n">07</span><h3>The State of <em>Creation</em> <span class="ext" aria-hidden="true">↗</span></h3></div>
-      </a>
-      <div class="passion">
-        <div class="passion-top"><span class="passion-n">08</span><h3>Women's empowerment</h3></div>
-      </div>
-    </div>
+    <ul class="interest-list">
+        <li><span><sup>01</sup>Wellness &amp; health</span></li>
+        <li><span><sup>02</sup>Fitness &amp; movement</span></li>
+        <li><span><sup>03</sup>Mindset &amp; personal growth</span></li>
+        <li><span><sup>04</sup>Design &amp; creative</span></li>
+        <li><span><sup>05</sup>Real estate</span></li>
+        <li><span><sup>06</sup>Tech &amp; AI</span></li>
+        <li><a href="https://thestateofcreation.com" target="_blank" rel="noopener"><sup>07</sup>The State of <i>Creation</i><span class="ext" aria-hidden="true">↗</span></a></li>
+        <li><span><sup>08</sup>Women's empowerment</span></li>
+    </ul>
   </div>
 </section>
 

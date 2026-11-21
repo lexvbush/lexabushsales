@@ -587,7 +587,7 @@ footer a:hover { color: var(--ink); }
         <a class="btn cal-open" href="https://calendly.com/lexvbush" target="_blank" rel="noopener">Book a call</a>
         <a class="btn ghost" href="#about">About me</a>
       </div>
-      <a class="training-chip" href="#training"><span class="dot" aria-hidden="true"></span>Now training with She Sells Academy</a>
+      <a class="training-chip" href="#training"><span class="dot" aria-hidden="true"></span>She Sells Academy graduate</a>
     </div>
     <div class="hero-figure">
       <span class="ring r1" aria-hidden="true"></span>
@@ -602,7 +602,7 @@ footer a:hover { color: var(--ink); }
   <div class="intro-inner">
     <span class="label">A note from me</span>
     <h2 id="h-title" class="intro-lead">Hello!</h2>
-    <p>I am developing a professional skillset in high-ticket sales through the She Sells Academy.<br>I am deeply passionate about personal development, and I am honored to be moving forward in a career where I can act on my Why: to encourage others to enact real change in their lives.</p>
+    <p>I developed a professional skillset in high-ticket sales through the She Sells Academy.<br>I am deeply passionate about personal development, and I am honored to be moving forward in a career where I can act on my Why: to encourage others to enact real change in their lives.</p>
     <p>I bring warmth and understanding to every conversation.</p>
     <p class="intro-close">I'd love to talk about your offer to see if it's one I can bring real energy and conviction to on every call.</p>
     <span class="rule" aria-hidden="true"></span>
@@ -612,14 +612,14 @@ footer a:hover { color: var(--ink); }
 <section class="block training" id="training" aria-labelledby="t-title">
   <div class="wrap training-inner">
     <div class="training-text">
-      <span class="label">Currently training</span>
-      <h2 id="t-title">Enrolled in the <em>She Sells</em> Academy.</h2>
-      <p>I started the 12-week She Sells Academy program in September 2026 to train specifically as a high-ticket remote closer. I'm learning the skills and practicing them daily with the incredible She Sells network.</p>
+      <span class="label">Training</span>
+      <h2 id="t-title">Graduated from the <em>She Sells</em> Academy.</h2>
+      <p>I completed the She Sells Academy program, where I trained specifically as a high-ticket remote closer and practiced daily with the incredible She Sells network.</p>
       <div class="logo-plate"><img src="images/she-sells.png" alt="She Sells" width="600" height="178"></div>
-      <div class="progress" aria-label="Course progress">
-        <div class="progress-head"><span id="week-label">Week 2 of 12</span><span>Sept 24 – Dec 17</span></div>
+      <div class="progress" aria-label="Course completed">
+        <div class="progress-head"><span>Program completed</span><span>12 of 12 weeks</span></div>
         <div class="weeks" id="weeks" aria-hidden="true">
-          <span class="done"></span><span class="now"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span><span class="done"></span>
         </div>
       </div>
     </div>
@@ -681,7 +681,7 @@ footer a:hover { color: var(--ink); }
       <p class="about-close">Thank you for reading, and I hope to talk to you soon.</p>
       <ul class="facts">
         <li><span>Based in</span><span>Connecticut. Remote calls worldwide.</span></li>
-        <li><span>Currently</span><span>Real Estate Agent at Bush Real Estate. She Sells Academy student.</span></li>
+        <li><span>Currently</span><span>Real Estate Agent at Bush Real Estate. She Sells Academy graduate.</span></li>
         <li><span>Education</span><span>University of Connecticut. B.S. Business Management, B.A. Digital Media &amp; Design</span></li>
       </ul>
     </div>
@@ -734,16 +734,6 @@ footer a:hover { color: var(--ink); }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-
-  // Course progress: 12 weeks starting Sept 24, 2026
-  var start = new Date(2026, 8, 24);
-  var days = Math.floor((Date.now() - start.getTime()) / 86400000);
-  var week = Math.min(12, Math.max(1, Math.floor(days / 7) + 1));
-  var label = document.getElementById('week-label');
-  var bars = document.querySelectorAll('#weeks span');
-  if (days >= 84) { label.textContent = 'Completed'; week = 13; }
-  else { label.textContent = 'Week ' + week + ' of 12'; }
-  bars.forEach(function (b, i) { b.className = i < week - 1 ? 'done' : (i === week - 1 ? 'now' : ''); });
 
   var btn = document.getElementById('copy-btn');
   var email = document.getElementById('email');
